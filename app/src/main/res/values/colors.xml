@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <color name="colorPrimaryDark">#FF7B6F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    colorlogin
+    <color name="Gradient1">#FF7B6F</color>
+    <color name="Gradient2">#FEA66F</color>
+    <color name="Gradient3">#F6C281</color>
+    <color name="withe">#fff</color>
+
+    <color name="twitter">#00aced</color>
+
+
+</resources>
