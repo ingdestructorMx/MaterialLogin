@@ -2,12 +2,15 @@ package com.ruiz.oscar.appexampleor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
 import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
+
+import FlowingMenu.MenuListFragment;
 
 public class HomeScreen extends AppCompatActivity {
 
@@ -17,6 +20,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
 
 
         mDrawer = (FlowingDrawer) findViewById(R.id.drawerlayout);
@@ -36,7 +40,23 @@ public class HomeScreen extends AppCompatActivity {
         });
 
 
+        setupMenu();
 
+
+
+    }
+
+
+
+    private void setupMenu() {
+        FragmentManager fm = getSupportFragmentManager();
+        MenuListFragment mMenuFragment = (MenuListFragment) fm.findFragmentById(R.id.id_container_menu);
+        if (mMenuFragment == null) {
+            mMenuFragment = new MenuListFragment();
+            fm.beginTransaction().add(R.id.id_container_menu, mMenuFragment).commit();
+        }
+
+//
     }
 
 

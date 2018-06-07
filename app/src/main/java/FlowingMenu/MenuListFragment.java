@@ -43,7 +43,7 @@ public class MenuListFragment extends Fragment {
                 return false;
             }
         }) ;
-        setupHeader();
+//        setupHeader();
         return  view ;
     }
 
