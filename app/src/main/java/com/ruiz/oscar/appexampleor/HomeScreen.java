@@ -1,6 +1,7 @@
 package com.ruiz.oscar.appexampleor;
 
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,15 +30,16 @@ public class HomeScreen extends AppCompatActivity {
 //    Recycler
 
     private List<Product> prductlist = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private ProductAdapter mAdapter;
+    private List<Product> combolist = new ArrayList<>();
+    private RecyclerView recyclerView,recyclerView2;
+    private ProductAdapter mAdapter , comboAdapter;
 
     private Boolean MenuState = false;
 //
 
 
 
-    ImageView menu;
+    ImageView menu ,btncart;
     FlowingDrawer mDrawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
         menu =  findViewById(R.id.btnmenu);
+        btncart =  findViewById(R.id.btncart);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +63,15 @@ public class HomeScreen extends AppCompatActivity {
 
             }
         });
+
+        btncart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeScreen.this,CartActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
         mDrawer = (FlowingDrawer) findViewById(R.id.drawerlayout);
@@ -91,10 +103,23 @@ public class HomeScreen extends AppCompatActivity {
 //
 
 
+        //        Recycler2
+
+        recyclerView2 = (RecyclerView) findViewById(R.id.recycler_view2);
+
+        comboAdapter = new ProductAdapter(combolist);
+        RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView2.setLayoutManager(mLayoutManager2);
+        recyclerView2.setItemAnimator(new DefaultItemAnimator());
+        recyclerView2.setAdapter(comboAdapter);
+//
+
+
 
 
         setupMenu();
         setuprecycler();
+        setupcomborecycler();
 
 
     }
@@ -127,6 +152,25 @@ public class HomeScreen extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
 
     }
+
+
+    private void setupcomborecycler(){
+
+
+        Product product = new Product("Combo frito","Esta es una comida para 5 persona","$ 120",null);
+        combolist.add(product);
+
+        Product product2 = new Product("Combo frito2","Esta es una comida para 3 persona","$ 120",null);
+        combolist.add(product2);
+
+        Product product3 = new Product("Combo frito3","Esta es una comida para 2 persona","$ 120",null);
+        combolist.add(product3);
+
+
+        comboAdapter.notifyDataSetChanged();
+
+    }
+
 
 
 

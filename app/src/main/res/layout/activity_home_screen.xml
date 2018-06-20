@@ -8,6 +8,21 @@
     tools:context=".HomeScreen">
 
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/amiko_semibold"
+        android:text="Combos"
+        android:textAlignment="center"
+        android:textColor="@color/withe"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
     <include
         android:id="@+id/include"
         layout="@layout/toolbar"
@@ -31,21 +46,51 @@
         app:layout_constraintTop_toBottomOf="@+id/include">
 
         <!--content-->
+
         <RelativeLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/recycler_view2"
+                android:background="@color/withe"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amiko_semibold"
+                    android:text="Proceed to checkout"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Gradient1"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="230dp"
+                android:layout_marginTop="240dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scrollbars="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/drawerlayout"
+                android:layout_height="220dp"
+                android:scrollbars="none"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
+
         </RelativeLayout>
 
         <!--menu-->
@@ -62,6 +107,13 @@
         </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
 
     </com.mxn.soul.flowingdrawer_core.FlowingDrawer>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="261dp" />
 
 
 </android.support.constraint.ConstraintLayout>
